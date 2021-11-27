@@ -15,7 +15,7 @@ final class FirstPresenter: FirstModuleOutput {
 	
 	private let dataService: FirstDataServicing = FirstDataService()
 	
-	var messages: [SomeTableViewCellViewModel] = []
+	private var messages: [SomeTableViewCellViewModel] = []
 	
 	private func loadData() {
 		dataService.loadData { [weak self] result in
@@ -38,6 +38,10 @@ extension FirstPresenter: FirstViewOutput {
         view?.setupView()
 		loadData()
     }
+	
+	func numberOfRows() -> Int {
+		return messages.count
+	}
 	
 	func configure(cell: SomeTableViewCellProtocol, at index: Int) {
 		cell.fill(message: messages[index])

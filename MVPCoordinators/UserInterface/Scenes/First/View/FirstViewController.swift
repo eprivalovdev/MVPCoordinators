@@ -68,8 +68,9 @@ extension FirstViewController: FirstViewInput {
 
 
 extension FirstViewController: UITableViewDataSource {
+	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return output?.messages.count ?? 0
+		return output?.numberOfRows() ?? 0
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -80,6 +81,7 @@ extension FirstViewController: UITableViewDataSource {
 }
 
 extension FirstViewController: UITableViewDelegate {
+	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		output?.openMessage(index: indexPath.row)
 	}

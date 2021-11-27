@@ -9,8 +9,8 @@
 import Foundation
 
 protocol FirstViewOutput {
-	var messages: [SomeTableViewCellViewModel] { get }
     func viewLoaded()
+	func numberOfRows() -> Int
 	func configure(cell: SomeTableViewCellProtocol, at index: Int)
 	func openMessage(index: Int)
 	func openSecondTab()
