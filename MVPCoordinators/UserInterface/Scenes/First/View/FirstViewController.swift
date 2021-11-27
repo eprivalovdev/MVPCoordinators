@@ -73,9 +73,8 @@ extension FirstViewController: UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		guard let message = output?.messages[indexPath.row] else { return UITableViewCell() }
 		let cell: SomeTableViewCell = tableView.dequeueCell(for: indexPath)
-		cell.fill(message: message)
+		output?.configure(cell: cell, at: indexPath.row)
 		return cell
 	}
 }

@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SomeTableViewCellProtocol {
+	func fill(message: SomeTableViewCellViewModel)
+}
+
 class SomeTableViewCell: ReusableTableViewCell {
 
 	private lazy var titleLabel: UILabel = {
@@ -55,8 +59,10 @@ class SomeTableViewCell: ReusableTableViewCell {
 	override func prepareForReuse() {
 		titleLabel.text = nil
 	}
+}
+
+extension SomeTableViewCell: SomeTableViewCellProtocol {
 	
-	// MARK: - Methods
 	func fill(message: SomeTableViewCellViewModel) {
 		titleLabel.text = message.title
 	}

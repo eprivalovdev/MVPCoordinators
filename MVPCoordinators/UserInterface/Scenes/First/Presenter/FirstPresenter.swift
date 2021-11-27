@@ -39,6 +39,10 @@ extension FirstPresenter: FirstViewOutput {
 		loadData()
     }
 	
+	func configure(cell: SomeTableViewCellProtocol, at index: Int) {
+		cell.fill(message: messages[index])
+	}
+	
 	func openMessage(index: Int) {
 		onFinish?(.showMessage(messages[index].title))
 	}
